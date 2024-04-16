@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Friend Request</title>
+<style>
+  body{
+  font-family:ArialNarrow;
+  font-size:10px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  margin:0;
+  background-color:white;
+  }
+  .container {
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(1, 0, 0, 0.1);
+  }
+  .h2 {
+    margin-top:0;
+    color:black;
+  }
+  
+  .options {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  .button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color:white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+    .envelope {
+    display: none;
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background: linear-gradient(to right, #f9e8e8, #f9e8e8 50%, #fff 50%, #fff);
+    border: 2px solid #e7c1c1;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s;
+    margin-top: 20px;
+  }
+    .envelope:hover {
+    transform: scale(1.05);
+  }
+
+  .heart {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    color: #e31745;
+    opacity: 0.8;
+    z-index: 1;
+    transition: opacity 0.3s;
+  }
+
+  .envelope:hover .heart {
+    opacity: 0;
+  }
+    .message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: #e31745;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .envelope:hover .message {
+    opacity: 1;
+  }
+
+  .ribbon {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 40px;
+    background-color: #e31745;
+    border-radius: 20px 20px 0 0;
+    z-index: 2;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .ribbon:before,
+  .ribbon:after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    border-style: solid;
+  }
+   .ribbon:before {
+    left: 0;
+    border-width: 10px 10px 0 0;
+    border-color: #e31745 transparent transparent transparent;
+  }
+
+  .ribbon:after {
+    right: 0;
+    border-width: 10px 0 0 10px;
+    border-color: #e31745 transparent transparent transparent;
+  }
+</style>
+
+<head>
+  <body>
+    <div id="firstPage" class="container">
+      <h2>Kaisher Bueno added you as a friend</h2>
+      <div class="options">
+        <button class="button" onclick="acceptFriendRequest()">Accept</button>
+        <button class="button" onclick="block()">Block</button>
+      </div>
+    </div>
+  
+    <div id="envelope" class="envelope">
+      <div class="ribbon"></div>
+      <div class="heart">&hearts;</div>
+      <div class="message">hi,thank you for accepting.</div>
+    </div>
+
+    <script>
+      function acceptFriendRequest() {
+        var firstPage = document.getElementById("firstPage");
+        var envelope = document.getElementById("envelope");
+        firstPage.style.display = "none";
+        envelope.style.display = "block";
+        envelope.scrollIntoView({ behavior: 'smooth' });
+      }
+
+      function block() {
+        alert("panget mo naman");
+      }
+    </script>
+  </body>
+</html>
